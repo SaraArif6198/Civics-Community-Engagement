@@ -690,6 +690,62 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif}
   .fframe { min-width: 72vw; }
   .mcard  { min-width: 88px; padding: 0.6rem 0.7rem; }
 }
+
+/* ── S4 FILM STRIP — MOBILE FIX ── */
+@media (max-width: 800px) {
+
+  /* Give the strip a fixed height so frames don't collapse */
+  #s4 .fstrip {
+    height: 52vw;
+    min-height: 200px;
+    max-height: 320px;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* Each frame is a full-width snap point */
+  #s4 .fframe {
+    min-width: 78vw;
+    max-width: 78vw;
+    flex: none;
+    height: 100%;
+    scroll-snap-align: start;
+  }
+
+  /* Image fills the frame properly */
+  #s4 .fframe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Always show the zoom dot on mobile (no hover state) */
+  #s4 .fframe .zoom-dot {
+    opacity: 1;
+  }
+
+  /* Small scroll hint label */
+  #s4 .top p::after {
+    content: ' · swipe to see all';
+  }
+}
+
+@media (max-width: 420px) {
+  #s4 .fstrip {
+    height: 58vw;
+    min-height: 190px;
+  }
+
+  #s4 .fframe {
+    min-width: 88vw;
+    max-width: 88vw;
+  }
+}
 </style>
 </head>
 <body>
